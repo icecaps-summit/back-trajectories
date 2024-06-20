@@ -2,10 +2,10 @@
 
 cd /home/vonw/work/software/icecaps-summit/back-trajectories
 
-/home/vonw/anaconda3/envs/work/bin/python create-raven-trajectories.py
-/home/vonw/anaconda3/envs/work/bin/python raven-trajectory-plots.py
+#/home/vonw/anaconda3/envs/work/bin/python create-raven-trajectories.py
+#/home/vonw/anaconda3/envs/work/bin/python raven-trajectory-plots.py
 
-eval (ssh-agent -c)
+eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
 git add .
 d=$(date -d "yesterday" -u -I)
