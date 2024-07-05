@@ -35,3 +35,5 @@ times = pd.date_range(yesterday.strftime('%Y-%m-%d')+' 00:00', yesterday.strftim
 
 download_GFS_data(today)
 generate_back_trajectories(times)
+
+# %%
