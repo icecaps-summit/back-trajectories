@@ -1,9 +1,41 @@
 # %%
+from glob import glob
 from datetime import datetime
+import numpy as np
 import pandas as pd
 import xarray as xr
 import hvplot.xarray
 import cartopy.crs as ccrs
+
+# %%
+fns = sorted(glob('/mnt/disk2/data/hysplit/backTrajectories/Raven*.trj'))
+
+# %%
+# ....Initialize variables
+variables = ['latitude', 'longitude', 'altitude', 'pressure', 'potential temperature', 'air temperature', 'relative humidity', 'mix depth', 'terrain above msl', 'solar flux']
+time = []
+ref_time_along_trajectories = np.nan * np.ones((121,1))
+vertical_level = np.nan * np.ones((19,1))
+latitude = np.nan * np.ones((121,19))
+longitude = np.nan * np.ones((121,19))
+altitude = np.nan * np.ones((121,19))
+pressure = np.nan * np.ones((121,19))
+potential_temperature = np.nan * np.ones((121,19))
+air_temperature = np.nan * np.ones((121,19))
+relative_humidity = np.nan * np.ones((121,19))
+mix_depth = np.nan * np.ones((121,19))
+terrain_above_msl = np.nan * np.ones((121,19))
+solar_flux = np.nan * np.ones((121,19))
+
+for fn in fns[0:2]:
+    df = pd.read_csv(fn, skiprows=32, delimiter=r"\s+", names=['trajectory', 'run', 'year', 'month', 'day', 'hour', 'minute', 'seconds', 'time', 'latitude', 'longitude', 'altitude', 'pressure', 'potential temperature', 'air temperature', 'rainfall', 'mix depth', 'relative humidity', 'terrain above msl', 'solar flux'])
+    time.append(np.array([pd.Timestamp(2000+df.year[0], df.month[0], df.day[0], df.hour[0], df.minute[0], df.seconds[0])]))
+    if fn == fns[0]:
+        ref_time_along_trajectories = df[df.trajectory==1]['time'].values
+        vertical_level = df.altitude.values[0:19]
+    # ....Deals with trajectories that have less than desired number of hours
+    for group in df.groupby('trajectory'):
+        latitude[group[0]-1] = group[1].latitude.values
 
 # %%
 df = pd.read_csv('/mnt/disk2/data/hysplit/backTrajectories/Raven_2024051500.trj', 
