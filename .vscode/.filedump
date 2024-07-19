@@ -1,0 +1,6 @@
+
+		begin
+      f = addfile("/home/vonw/work/software/icecaps-summit/back-trajectories/tmp.nc","r")
+      print(f)
+		end
+    
