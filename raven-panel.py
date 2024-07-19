@@ -1,5 +1,6 @@
 # %%
 import xarray as xr
+import hvplot.xarray
 import datetime as dt
 import panel as pn
 pn.extension()
@@ -8,19 +9,18 @@ pn.extension()
 raven_back_trajectories = xr.open_dataset('/mnt/disk2/data/hysplit/backTrajectories/raven_back_trajectories.nc')
 
 # %%
-def trajectory_plot(raven_back_trajectories):
-    trj_plot = 
+def trajectory_plot(raven_back_trajectories, variable):
+    trj_plot = raven_back_trajectories.sel(time=trj_time.value, vertical_level=trj_levels.value)[variable].plot()
     return trj_plot
+
 # %%
-trajectories = pn.widgets.IntRangeSlider(
+trj_levels = pn.widgets.IntRangeSlider(
     name='Vertical Level of Trajectory (m)',
     start=100, 
     end=9100, 
     value=(100, 100), 
     step=500,
     bar_color='green')
-
-trajectories
 
 # %%
 trj_time = pn.widgets.DatetimePicker(
@@ -29,8 +29,6 @@ trj_time = pn.widgets.DatetimePicker(
     start=dt.datetime(2024, 5, 15),
     end = dt.datetime.today() - dt.timedelta(days=1)
 )
-
-pn.Column(trj_time)
 
 # %%
 import panel.widgets as pnw
