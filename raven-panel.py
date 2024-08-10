@@ -14,6 +14,16 @@ def trajectory_plot(variable='latitude', time=dt.datetime(2024, 5, 15, 0), level
     return raven_back_trajectories.sel(time=time, vertical_level=level, method='nearest')[variable].hvplot()
 
 # %%
+colorScaleVariable = 'altitude'
+df = raven_back_trajectories.sel(time='2024-07-04 04', vertical_level=100, method='nearest').to_dataframe()
+df.hvplot.points('longitude', 'latitude', 
+                             geo=True, 
+                             c=df[colorScaleVariable], 
+                             clabel=colorScaleVariable,
+                             cmap='viridis', 
+                             )
+
+# %%
 variables = [variable for variable in raven_back_trajectories.variables][0:11]
 variable_widget = pn.widgets.Select(name='Trajectory Variable', options=variables)
 #time_widget = pn.widgets.DatetimePicker(name='Date of Trajectories', value=dt.datetime(2024, 5, 15), start=dt.datetime(2024, 5, 15), end = dt.datetime.today() - dt.timedelta(days=1))
@@ -24,5 +34,7 @@ level_widget = pn.widgets.IntSlider(name='Vertical Level of Trajectory (m)', sta
 # %%
 plot = pn.bind(trajectory_plot, variable=variable_widget, time=time_widget, level=level_widget)
 widgets = pn.Column(variable_widget, time_widget, level_widget)
-pn.Column(widgets, plot).show()
+pn.Column(widgets, plot).servable()
 
+
+# %%
