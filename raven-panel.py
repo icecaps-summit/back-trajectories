@@ -1,40 +1,84 @@
 # %%
-import numpy as np
 import xarray as xr
 import hvplot.xarray
+import hvplot.pandas
 import datetime as dt
+import cartopy.crs as ccrs
 import panel as pn
-pn.extension()
+pn.extension('tabulator')
+
+from socket import gethostname
+hostname = gethostname()
 
 # %%
-raven_back_trajectories = xr.open_dataset('/mnt/disk2/data/hysplit/backTrajectories/raven_back_trajectories.nc')
+if ('nuia' in hostname):
+    fn = '/Users/vonw/data/raven/hysplit/raven_back_trajectories.nc'
+elif ('gaia' in hostname):
+    fn = '/mnt/disk2/data/hysplit/backTrajectories/raven_back_trajectories.nc'
+else:
+    print('No data file containing back trajectories. Exiting.')
+    exit()
 
 # %%
-def trajectory_plot(variable='latitude', time=dt.datetime(2024, 5, 15, 0), level=100):
-    return raven_back_trajectories.sel(time=time, vertical_level=level, method='nearest')[variable].hvplot()
+@pn.cache()
+def get_data(filename):
+    return xr.open_dataset(filename)
+raven_back_trajectories = get_data(fn)
+
+# %% widgets
+variables = [variable for variable in raven_back_trajectories.variables][2:11]
+
+time      = pn.widgets.DatetimePicker(name='Date of Trajectories', value=dt.datetime(2024, 5, 15), start=dt.datetime(2024, 5, 15), end = dt.datetime.today() - dt.timedelta(days=1))
+level     = pn.widgets.IntSlider(name='Vertical Level of Trajectory (m)', start=100, end=9100, value=100, step=500, bar_color='green')
+variable  = pn.widgets.Select(name='Trajectory Variable', options=variables)
+kind      = pn.widgets.Select(name='Plot Type', options=['line', 'hist'])
 
 # %%
-colorScaleVariable = 'altitude'
-df = raven_back_trajectories.sel(time='2024-07-04 04', vertical_level=100, method='nearest').to_dataframe()
-df.hvplot.points('longitude', 'latitude', 
-                             geo=True, 
-                             c=df[colorScaleVariable], 
-                             clabel=colorScaleVariable,
-                             cmap='viridis', 
-                             )
+def get_dataframe(time, level):
+    df = raven_back_trajectories.sel(time=time.strftime('%Y-%m-%d %H'), vertical_level=level, method='nearest').to_dataframe()
+    return df
+
+df = pn.rx(get_dataframe)(time=time, level=level)
+
+# %% Indicators
+indicators = pn.FlexBox(
+    pn.indicators.Number(
+        value=df['air temperature'].mean(), name="Mean Air Temperature", format="{value:,.1f}", font_size='24pt', title_size='8pt', colors=[(250, 'blue'), (273.15, 'teal'), (290, 'red')],
+    ),
+    pn.indicators.Number(
+        value=df['air temperature'].max(),  name="Max Air Temperature", format="{value:,.1f}", font_size='24pt', title_size='8pt', colors=[(250, 'blue'), (273.15, 'teal'), (290, 'red')],
+    ),
+    pn.indicators.Number(
+        value=df['air temperature'].min(),  name="Min Air Temperature", format="{value:,.1f}", font_size='24pt', title_size='8pt', colors=[(250, 'blue'), (273.15, 'teal'), (290, 'red')],
+    ),
+)
+
+# %% Figure definition
+trj = pn.pane.HoloViews(df.hvplot.points('longitude',
+                                        'latitude',
+                                        geo=True, 
+                                        color=variable, 
+                                        cmap='viridis',
+                                        xlim=[-90, 0], 
+                                        ylim=[50, 84], 
+                                        coastline=True, 
+                                        projection=ccrs.NearsidePerspective(central_longitude=-46.3, central_latitude=66.5), 
+    )
+)
+
+fig = df[variable].hvplot(kind=kind, grid=True)
 
 # %%
-variables = [variable for variable in raven_back_trajectories.variables][0:11]
-variable_widget = pn.widgets.Select(name='Trajectory Variable', options=variables)
-#time_widget = pn.widgets.DatetimePicker(name='Date of Trajectories', value=dt.datetime(2024, 5, 15), start=dt.datetime(2024, 5, 15), end = dt.datetime.today() - dt.timedelta(days=1))
-#time_widget = pn.widgets.DateSlider(name='Date of Trajectories', value=dt.datetime(2024, 5, 15, 0), start=dt.datetime(2024, 5, 15, 0), end = dt.datetime.today() - dt.timedelta(days=1))
-time_widget = pn.widgets.DiscreteSlider(name='Date of Trajectories', options=list(raven_back_trajectories.time.values), value=raven_back_trajectories.time[0].values, bar_color='green')
-level_widget = pn.widgets.IntSlider(name='Vertical Level of Trajectory (m)', start=100, end=9100, value=100, step=500, bar_color='green')
+plot  = pn.pane.HoloViews(fig, sizing_mode='stretch_both', name='Plot')
+table = pn.widgets.Tabulator(df, sizing_mode='stretch_both', name='Table')
 
-# %%
-plot = pn.bind(trajectory_plot, variable=variable_widget, time=time_widget, level=level_widget)
-widgets = pn.Column(variable_widget, time_widget, level_widget)
-pn.Column(widgets, plot).servable()
+tabs = pn.Tabs(
+    plot, table, sizing_mode="stretch_width", height=500, margin=10
+)
 
-
-# %%
+# %% Serve the template
+pn.template.FastListTemplate(
+    title="Raven back trajectory dashboard",
+    sidebar=[time, level, variable, kind],
+    main=[pn.Column(pn.Row(trj, indicators), tabs, sizing_mode="stretch_both")],
+).servable()
