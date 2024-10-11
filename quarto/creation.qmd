@@ -1,0 +1,78 @@
+# Creating Trajectories {.unnumbered}
+
+## Trajectory Model
+
+The back trajectories were calculated using the NOAA Hysplit version 5 model described by @steinNOAAHYSPLITAtmospheric2015. The model was run on gaia, a 32-processor Linux workstation at Washington State University.
+
+## Model Setup
+
+[Here](https://www.ready.noaa.gov/hysplitusersguide/S000.htm) are the instructions for how to setup and run a Hysplit back trajectory.
+
+:::{.callout-tip collapse="true"}
+### Sample CONTROL file
+```
+24 05 15 01 00
+20
+66.500000 -46.300000 100
+66.500000 -46.300000 600
+66.500000 -46.300000 1100
+66.500000 -46.300000 1600
+66.500000 -46.300000 2100
+66.500000 -46.300000 2600
+66.500000 -46.300000 3100
+66.500000 -46.300000 3600
+66.500000 -46.300000 4100
+66.500000 -46.300000 4600
+66.500000 -46.300000 5100
+66.500000 -46.300000 5600
+66.500000 -46.300000 6100
+66.500000 -46.300000 6600
+66.500000 -46.300000 7100
+66.500000 -46.300000 7600
+66.500000 -46.300000 8100
+66.500000 -46.300000 8600
+66.500000 -46.300000 9100
+66.500000 -46.300000 9600
+-120
+0       
+10000
+9
+/mnt/disk2/data/hysplit/datasrc/GFS/
+20240515_gfs0p25
+/mnt/disk2/data/hysplit/datasrc/GFS/
+20240514_gfs0p25
+/mnt/disk2/data/hysplit/datasrc/GFS/
+20240513_gfs0p25
+/mnt/disk2/data/hysplit/datasrc/GFS/
+20240512_gfs0p25
+/mnt/disk2/data/hysplit/datasrc/GFS/
+20240511_gfs0p25
+/mnt/disk2/data/hysplit/datasrc/GFS/
+20240510_gfs0p25
+/mnt/disk2/data/hysplit/datasrc/GFS/
+20240509_gfs0p25
+/mnt/disk2/data/hysplit/datasrc/GFS/
+20240508_gfs0p25
+/mnt/disk2/data/hysplit/datasrc/GFS/
+20240516_gfs0p25
+/mnt/disk2/data/hysplit/backTrajectories/
+Raven_2024051501.trj
+```
+:::
+
+
+:::{.callout-tip collapse="true"}
+### Sample SETUP file
+```
+&SETUP
+KMSL=0,
+tm_tpot=1,
+tm_tamb=1,
+tm_rain=1,
+tm_mixd=1,
+tm_relh=1,
+tm_terr=1,
+tm_dswf=1,
+/
+```
+:::

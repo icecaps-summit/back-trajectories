@@ -1,0 +1,172 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Back Trajectories for Raven Camp 2024",
+    "section": "",
+    "text": "Introduction\nThis set of documents explains the creation, analysis and visualization of back trajectory calculations performed for Raven Camp, Greenland from May to August 2024. This back trajectory analysis is part of the ICECAPS-MELT project, sponsored by the National Science Foundation’s Arctic Observing Network (AON) under grant 2137083 to Washington State University (Von P. Walden, PI).",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "background.html",
+    "href": "background.html",
+    "title": "Background",
+    "section": "",
+    "text": "Useful equations",
+    "crumbs": [
+      "Background"
+    ]
+  },
+  {
+    "objectID": "creation.html",
+    "href": "creation.html",
+    "title": "Creating Trajectories",
+    "section": "",
+    "text": "Trajectory Model\nThe back trajectories were calculated using the NOAA Hysplit version 5 model described by Stein et al. (2015). The model was run on gaia, a 32-processor Linux workstation at Washington State University.",
+    "crumbs": [
+      "Creating Trajectories"
+    ]
+  },
+  {
+    "objectID": "analysis.html",
+    "href": "analysis.html",
+    "title": "Trajectory Analysis",
+    "section": "",
+    "text": "Ideas for analysis\nThis method comes from Sodemann, Schwierz, and Wernli (2008); they cite James et al. (2004). One simply calculates the change in specific humidity between equally spaced periods along the trajectory.\nThis method comes from Sodemann, Schwierz, and Wernli (2008).\nI think it might be interesting to plot symbols on the trajectory map that show moisture uptake (blue = evaporation) and moisture loss (blue = precipitation; color represent gain and loss to the atmosphere). Think about color choices here…\nDetermine the cloud-base height at each trajectory time. (This can be done using the CL61 summary files at 15 minute resolution.) Then select the vertical level that is closest to the cloud-base height. Plot all of these trajectories together to determine if they might be categorized. Determine the SOMs that are associated with the resulting categories; see below.\nDetermine the SOMs that are associated with each near-surface trajectory. I suspect that some SOMs will the associated with precipitation along the trajectory and some won’t.\nUse the methods of Hermann, Papritz, and Wernli (2020) to analyze multiple trajectories across the SW region of Greenland for the summer of 2024 to investigate how representative the SLEIGH measurements are. A lot of cool research questions here:",
+    "crumbs": [
+      "Trajectory Analysis"
+    ]
+  },
+  {
+    "objectID": "dashboard.html",
+    "href": "dashboard.html",
+    "title": "Dashboard",
+    "section": "",
+    "text": "Dashboard",
+    "crumbs": [
+      "Dashboard"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Bieli, Melanie, Stephan Pfahl, and Heini Wernli. 2015. “A\nLagrangian Investigation of Hot and Cold Temperature\nExtremes in Europe.” Quarterly Journal of the\nRoyal Meteorological Society 141 (686): 98–108. https://doi.org/10.1002/qj.2339.\n\n\nHermann, Mauro, Lukas Papritz, and Heini Wernli. 2020. “A\nLagrangian Analysis of the Dynamical and Thermodynamic\nDrivers of Large-Scale Greenland Melt Events During\n1979–2017.” Weather and Climate Dynamics 1 (2): 497–518.\nhttps://doi.org/10.5194/wcd-1-497-2020.\n\n\nJames, P., A. Stohl, N. Spichtinger, S. Eckhardt, and C. Forster. 2004.\n“Climatological Aspects of the Extreme European\nRainfall of August 2002 and a Trajectory Method for\nEstimating the Associated Evaporative Source Regions.”\nNatural Hazards and Earth System Sciences 4 (5/6): 733–46. https://doi.org/10.5194/nhess-4-733-2004.\n\n\nPapritz, Lukas, David Hauswirth, and Katharina Hartmuth. 2022.\n“Moisture Origin, Transport Pathways, and Driving Processes of\nIntense Wintertime Moisture Transport into the\nArctic.” Weather and Climate Dynamics 3\n(1): 1–20. https://doi.org/10.5194/wcd-3-1-2022.\n\n\nSodemann, H., C. Schwierz, and H. Wernli. 2008. “Interannual\nVariability of Greenland Winter Precipitation Sources:\nLagrangian Moisture Diagnostic and North Atlantic\nOscillation Influence.” Journal of Geophysical\nResearch: Atmospheres 113 (D3). https://doi.org/10.1029/2007JD008503.",
+    "crumbs": [
+      "References"
+    ]
+  },
+  {
+    "objectID": "background.html#back-trajectory-analysis",
+    "href": "background.html#back-trajectory-analysis",
+    "title": "Background",
+    "section": "Back trajectory analysis",
+    "text": "Back trajectory analysis\nThere are some excellent papers by Heini Wernli on the use of back trajectories to understand the history of air that arrives at a given location. In particular, these papers describe different ways that the air trajectories can be analyzed to understand:\n\nwater vapor transport\ndiabatic versus adiabatic heating/cooling\n\nHere is a list of the important papers (in chronological order), including notes on how to use back trajectories for analysis:\n\n\nSodemann, Schwierz, and Wernli (2008)\n\nA Lagrangian Moisture Source Diagnostic\n\nIndentification of Moisture Uptake\n\nAssume air parcel “integrity”…\n\nIdentify where moisture enters an air parcel\nEstimate which moisture sources contribute how much to precipitation at a specific location\n\nOnly air parcels that are precipitating (RH &gt; 80%) at t = 0 hours are analyzed\n6 step method for determining location of moisture source regions\nThis method allows for determining within-BL and above-BL uptake of moisture\n\n\n\nMoisture Source Attribution\n\nProvides a method for determining what fraction of moisture uptake from a particular location contributes to precipitation from the air parcel. Thus, this provides information on the “relevance” of a particular source region for local precip.\n\n\n\n\nPerformance of the Method\n\nMoisture Source NAO Variability\n\nThis paper discusses how the moisture sources associated with precipitation on Greenland is affected by the NAO index; see Figure 6.\nFigure 8 shows the definition of “uptake sectors” in the Arctic and the fraction of contribution from each sector in different NAO regimes (+, neutral and -)\n\n\n\n\nEvaluation of the Lagrangian Diagnositic\n\nHere the authors reconsider some of the assumptions, limitations and cavaets of this method of Lagrangian analysis.\nThey also compare their new method to previous Lagrangian moisture source diagnostics.\n\n\n\n\n\nBieli, Pfahl, and Wernli (2015)\n\nIntroduction\n\nThis paper concentrates on the analysis of back trajectories during hot and cold extremes in Europe.\n\n\n\n\n\n\nHermann, Papritz, and Wernli (2020)\n\nIntroduction\n\nQuestions of the study\n\nHow often did large-scale melt events occur over the GrIS during 1979-2017?\nWhat are the synoptic flow configuration and the air mass pathways during these melt events?\nWhich thermodynamic air mass modifications and radiative effects over the GrIS accumulation zone caused these melt events?\nDoes the answer to Q2 and Q3 differ for subregions of the GrIS accumulation zone?\n\n\n\n\n\n\n\n\n\nPapritz, Hauswirth, and Hartmuth (2022)\n\n\n\n\nBieli, Melanie, Stephan Pfahl, and Heini Wernli. 2015. “A Lagrangian Investigation of Hot and Cold Temperature Extremes in Europe.” Quarterly Journal of the Royal Meteorological Society 141 (686): 98–108. https://doi.org/10.1002/qj.2339.\n\n\nHermann, Mauro, Lukas Papritz, and Heini Wernli. 2020. “A Lagrangian Analysis of the Dynamical and Thermodynamic Drivers of Large-Scale Greenland Melt Events During 1979–2017.” Weather and Climate Dynamics 1 (2): 497–518. https://doi.org/10.5194/wcd-1-497-2020.\n\n\nPapritz, Lukas, David Hauswirth, and Katharina Hartmuth. 2022. “Moisture Origin, Transport Pathways, and Driving Processes of Intense Wintertime Moisture Transport into the Arctic.” Weather and Climate Dynamics 3 (1): 1–20. https://doi.org/10.5194/wcd-3-1-2022.\n\n\nSodemann, H., C. Schwierz, and H. Wernli. 2008. “Interannual Variability of Greenland Winter Precipitation Sources: Lagrangian Moisture Diagnostic and North Atlantic Oscillation Influence.” Journal of Geophysical Research: Atmospheres 113 (D3). https://doi.org/10.1029/2007JD008503.",
+    "crumbs": [
+      "Background"
+    ]
+  },
+  {
+    "objectID": "analysis.html#ideas",
+    "href": "analysis.html#ideas",
+    "title": "Analysis",
+    "section": "",
+    "text": "Plot an individual trajectory in the context of ALL the trajectories at a given vertical level for the Raven 2024 field season. All the trajectories would use a very think line, while the desired trajectory would me bold and thick. Similar to Figure 2 in Hermann, Papritz, and Wernli (2020).\nPlot time series of an individual trajectory in the context of ALL the trajectories at a given vertical level for the Raven 2024 field season. Use shading to show the upper and lower quartiles and upper and lower deciles. Similar to Figures 2, 3, 5, 6, 7, 8 in Bieli, Pfahl, and Wernli (2015).\nCreate potential temperature vs air temperature plots. Similar to Figure 10 of Bieli, Pfahl, and Wernli (2015)\n\n\n\n\n\nBieli, Melanie, Stephan Pfahl, and Heini Wernli. 2015. “A Lagrangian Investigation of Hot and Cold Temperature Extremes in Europe.” Quarterly Journal of the Royal Meteorological Society 141 (686): 98–108. https://doi.org/10.1002/qj.2339.\n\n\nHermann, Mauro, Lukas Papritz, and Heini Wernli. 2020. “A Lagrangian Analysis of the Dynamical and Thermodynamic Drivers of Large-Scale Greenland Melt Events During 1979–2017.” Weather and Climate Dynamics 1 (2): 497–518. https://doi.org/10.5194/wcd-1-497-2020.",
+    "crumbs": [
+      "Analysis"
+    ]
+  },
+  {
+    "objectID": "analysis.html#ideas-for-plots",
+    "href": "analysis.html#ideas-for-plots",
+    "title": "Trajectory Analysis",
+    "section": "Ideas for plots",
+    "text": "Ideas for plots\n\nPlot an individual trajectory in the context of ALL the trajectories at a given vertical level for the Raven 2024 field season. All the trajectories would use a very think line, while the desired trajectory would me bold and thick. Similar to Figure 2 in Hermann, Papritz, and Wernli (2020).\nPlot time series of an individual trajectory in the context of ALL the trajectories at a given vertical level for the Raven 2024 field season. Use shading to show the upper and lower quartiles and upper and lower deciles. Similar to Figures 2, 3, 5, 6, 7, 8 in Bieli, Pfahl, and Wernli (2015).\nCreate potential temperature (theta) vs air temperature (T) plots. Add lines of constant pressure. Similar to Figure 10 of Bieli, Pfahl, and Wernli (2015) and Figure 10 of Hermann, Papritz, and Wernli (2020). (Note that Hermann plotted T vs theta instead of theta vs T).\n\n\\(\\theta\\) vs. T\n\nT changes while \\(\\theta\\) remains constant = adiabatic contribution\nT and \\(\\theta\\) change in parallel = diabatic contribution\n\nTrajectory time series showing median value and interquartile and interdecile ranges of:\n\nq\n\\(\\theta '\\)\nlat - lat_0\np\nT - To\n\\(\\theta - \\theta_o\\)\n\n\n\n\n\n\n\nBieli, Melanie, Stephan Pfahl, and Heini Wernli. 2015. “A Lagrangian Investigation of Hot and Cold Temperature Extremes in Europe.” Quarterly Journal of the Royal Meteorological Society 141 (686): 98–108. https://doi.org/10.1002/qj.2339.\n\n\nHermann, Mauro, Lukas Papritz, and Heini Wernli. 2020. “A Lagrangian Analysis of the Dynamical and Thermodynamic Drivers of Large-Scale Greenland Melt Events During 1979–2017.” Weather and Climate Dynamics 1 (2): 497–518. https://doi.org/10.5194/wcd-1-497-2020.\n\n\nJames, P., A. Stohl, N. Spichtinger, S. Eckhardt, and C. Forster. 2004. “Climatological Aspects of the Extreme European Rainfall of August 2002 and a Trajectory Method for Estimating the Associated Evaporative Source Regions.” Natural Hazards and Earth System Sciences 4 (5/6): 733–46. https://doi.org/10.5194/nhess-4-733-2004.\n\n\nSodemann, H., C. Schwierz, and H. Wernli. 2008. “Interannual Variability of Greenland Winter Precipitation Sources: Lagrangian Moisture Diagnostic and North Atlantic Oscillation Influence.” Journal of Geophysical Research: Atmospheres 113 (D3). https://doi.org/10.1029/2007JD008503.",
+    "crumbs": [
+      "Trajectory Analysis"
+    ]
+  },
+  {
+    "objectID": "analysis.html#ideas-for-analysis",
+    "href": "analysis.html#ideas-for-analysis",
+    "title": "Trajectory Analysis",
+    "section": "",
+    "text": "Diabatic vs adiabatic heating/cooling\nMoisture uptake\n\n\n\nMoisture Source Attribution\n\n\n\n\nAssociate trajectory with cloud base height\n\n\n\nAssociate trajectory with Self Organizing Map\n\n\n\nRegional trajectory analysis\n\n\n\nHow large of an area in SW Greenland if affected by similar conditions to Raven?\nHow representative are the SLEIGH measurments under different atmospheric conditions (SOMs)?",
+    "crumbs": [
+      "Trajectory Analysis"
+    ]
+  },
+  {
+    "objectID": "dashboard.html#raven-back-trajectory-summary",
+    "href": "dashboard.html#raven-back-trajectory-summary",
+    "title": "Dashboard",
+    "section": "Raven Back Trajectory Summary",
+    "text": "Raven Back Trajectory Summary",
+    "crumbs": [
+      "Dashboard"
+    ]
+  },
+  {
+    "objectID": "dashboard.html#dashboard",
+    "href": "dashboard.html#dashboard",
+    "title": "Dashboard",
+    "section": "",
+    "text": "Caution\n\n\n\nDashboard will be implemented in the future… Stand by…",
+    "crumbs": [
+      "Dashboard"
+    ]
+  },
+  {
+    "objectID": "creation.html#setup",
+    "href": "creation.html#setup",
+    "title": "Creation",
+    "section": "Setup",
+    "text": "Setup",
+    "crumbs": [
+      "Creation"
+    ]
+  },
+  {
+    "objectID": "creation.html#model-setup",
+    "href": "creation.html#model-setup",
+    "title": "Creating Trajectories",
+    "section": "Model Setup",
+    "text": "Model Setup\nHere are the instructions for how to setup and run a Hysplit back trajectory.\n\n\n\n\n\n\nSample CONTROL file\n\n\n\n\n\n24 05 15 01 00\n20\n66.500000 -46.300000 100\n66.500000 -46.300000 600\n66.500000 -46.300000 1100\n66.500000 -46.300000 1600\n66.500000 -46.300000 2100\n66.500000 -46.300000 2600\n66.500000 -46.300000 3100\n66.500000 -46.300000 3600\n66.500000 -46.300000 4100\n66.500000 -46.300000 4600\n66.500000 -46.300000 5100\n66.500000 -46.300000 5600\n66.500000 -46.300000 6100\n66.500000 -46.300000 6600\n66.500000 -46.300000 7100\n66.500000 -46.300000 7600\n66.500000 -46.300000 8100\n66.500000 -46.300000 8600\n66.500000 -46.300000 9100\n66.500000 -46.300000 9600\n-120\n0       \n10000\n9\n/mnt/disk2/data/hysplit/datasrc/GFS/\n20240515_gfs0p25\n/mnt/disk2/data/hysplit/datasrc/GFS/\n20240514_gfs0p25\n/mnt/disk2/data/hysplit/datasrc/GFS/\n20240513_gfs0p25\n/mnt/disk2/data/hysplit/datasrc/GFS/\n20240512_gfs0p25\n/mnt/disk2/data/hysplit/datasrc/GFS/\n20240511_gfs0p25\n/mnt/disk2/data/hysplit/datasrc/GFS/\n20240510_gfs0p25\n/mnt/disk2/data/hysplit/datasrc/GFS/\n20240509_gfs0p25\n/mnt/disk2/data/hysplit/datasrc/GFS/\n20240508_gfs0p25\n/mnt/disk2/data/hysplit/datasrc/GFS/\n20240516_gfs0p25\n/mnt/disk2/data/hysplit/backTrajectories/\nRaven_2024051501.trj\n\n\n\n\n\n\n\n\n\nSample SETUP file\n\n\n\n\n\n&SETUP\nKMSL=0,\ntm_tpot=1,\ntm_tamb=1,\ntm_rain=1,\ntm_mixd=1,\ntm_relh=1,\ntm_terr=1,\ntm_dswf=1,\n/\n\n\n\n\n\n\n\nStein, A. F., R. R. Draxler, G. D. Rolph, B. J. B. Stunder, M. D. Cohen, and F. Ngan. 2015. “NOAA’s HYSPLIT Atmospheric Transport and Dispersion Modeling System.” Bulletin of the American Meteorological Society 96 (12): 2059–77. https://doi.org/10.1175/BAMS-D-14-00110.1.",
+    "crumbs": [
+      "Creating Trajectories"
+    ]
+  },
+  {
+    "objectID": "analysis.html#useful-equations",
+    "href": "analysis.html#useful-equations",
+    "title": "Analysis",
+    "section": "Useful equations",
+    "text": "Useful equations\n\nDiabatic versus Adiabatic changes\n\\[\n\\frac{dT}{dt} = \\frac{\\kappa T \\omega}{p} + H \\left( \\frac{p_o}{p} \\right)^{-\\kappa}\n\\]\n\nthe first term on the right represents the adiabatic heating/cooling from compression/expansion. \\(\\omega\\) &gt; 0 for descending motion (compression and heating, + term).\nthe second term on the right represents diabatic temperature changes from latent heating in clouds (rare at the surface), radiation, and surface fluxes. Therefore, the term H can be written as \\(H = H_{cld} + H_{rad} + H_{sfl}\\).\n\n\n\nChanges in Moisture Content\n\\[\n\\frac{dq}{dt} \\approx \\frac{\\Delta q}{\\Delta t} = E - P = Evaporation - Precipitation \\space [units: g \\space kg^{-1} \\space (1 h)^{-1}]\n\\]\n\nThus, changes in the air parcel’s moisture content can be approximated by simply determing the change in q (specific humidity) between each time step (because each time step is equal; 1 hour).\n\n\n\nAir Parcel Velocity\n\\[\n\\frac{d \\textbf{x}}{dt} = \\textbf{u(x)}\n\\]",
+    "crumbs": [
+      "Analysis"
+    ]
+  },
+  {
+    "objectID": "analysis.html#plot-ideas",
+    "href": "analysis.html#plot-ideas",
+    "title": "Analysis",
+    "section": "Plot ideas",
+    "text": "Plot ideas\n\n\\(\\Theta\\) vs. T\n\nT changes while \\(\\Theta\\) remains constant = adiabatic contribution\nT and \\(\\Theta\\) change in parallel = diabatic contribution\n\nTrajectory time series showing median value and interquartile and interdecile ranges of:\n\nq\n\\(\\Theta '\\)\nlat - lat_0\np\nT - To\n\\(\\Theta - \\Theta_o\\)\n\n\n\n\n\n\nBieli, Melanie, Stephan Pfahl, and Heini Wernli. 2015. “A Lagrangian Investigation of Hot and Cold Temperature Extremes in Europe.” Quarterly Journal of the Royal Meteorological Society 141 (686): 98–108. https://doi.org/10.1002/qj.2339.\n\n\nHermann, Mauro, Lukas Papritz, and Heini Wernli. 2020. “A Lagrangian Analysis of the Dynamical and Thermodynamic Drivers of Large-Scale Greenland Melt Events During 1979–2017.” Weather and Climate Dynamics 1 (2): 497–518. https://doi.org/10.5194/wcd-1-497-2020.\n\n\nJames, P., A. Stohl, N. Spichtinger, S. Eckhardt, and C. Forster. 2004. “Climatological Aspects of the Extreme European Rainfall of August 2002 and a Trajectory Method for Estimating the Associated Evaporative Source Regions.” Natural Hazards and Earth System Sciences 4 (5/6): 733–46. https://doi.org/10.5194/nhess-4-733-2004.\n\n\nSodemann, H., C. Schwierz, and H. Wernli. 2008. “Interannual Variability of Greenland Winter Precipitation Sources: Lagrangian Moisture Diagnostic and North Atlantic Oscillation Influence.” Journal of Geophysical Research: Atmospheres 113 (D3). https://doi.org/10.1029/2007JD008503.",
+    "crumbs": [
+      "Analysis"
+    ]
+  },
+  {
+    "objectID": "background.html#useful-equations",
+    "href": "background.html#useful-equations",
+    "title": "Background",
+    "section": "",
+    "text": "Potential temperture\n\\[\n\\theta = T \\left( \\frac{p_0}{p} \\right)^{\\kappa}\n\\]\nwhere \\(\\kappa = \\frac{R_{air}}{c_p} = \\frac{287 J kg^{-1} K^{-1}}{1005 J kg^{-1} K^{-1}} = 0.286\\).\n\n\nDiabatic versus Adiabatic changes\n\\[\n\\frac{dT}{dt} = \\frac{\\kappa T \\omega}{p} + H \\left( \\frac{p_o}{p} \\right)^{-\\kappa} = adiabatic + diabatic\n\\]\n\nthe first term on the right represents the adiabatic heating/cooling from compression/expansion. \\(\\omega\\) &gt; 0 for descending motion (compression and heating, + term).\nthe second term on the right represents diabatic temperature changes from latent heating in clouds (rare at the surface), radiation, and surface fluxes. Therefore, the term H can be written as \\(H = H_{cld} + H_{rad} + H_{sfl}\\).\n\n\n\nChanges in Moisture Content\n\\[\n\\frac{dq}{dt} \\approx \\frac{\\Delta q}{\\Delta t} = E - P = Evaporation - Precipitation \\space [units: g \\space kg^{-1} \\space (1 h)^{-1}]\n\\]\n\nThus, changes in the air parcel’s moisture content can be approximated by simply determing the change in q (specific humidity) between each time step (because each time step is equal; 1 hour).\n\n\n\nAir Parcel Velocity\n\\[\n\\frac{d \\textbf{x}}{dt} = \\textbf{u(x)}\n\\]",
+    "crumbs": [
+      "Background"
+    ]
+  }
+]

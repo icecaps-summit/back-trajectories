@@ -1,0 +1,100 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Introduction\nThis set of documents explains the creation, analysis and visualization of back trajectory calculations performed for Raven Camp, Greenland from May to August 2024. This back trajectory analysis is part of the ICECAPS-MELT project, sponsored by the National Science Foundation’s Arctic Observing Network (AON) under grant 2137083 to Washington State University (Von P. Walden, PI)."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "References"
+  },
+  {
+    "objectID": "dashboard.html",
+    "href": "dashboard.html",
+    "title": "Dashboard",
+    "section": "",
+    "text": "Caution\n\n\n\nDashboard will be implemented in the future… Stand by…"
+  },
+  {
+    "objectID": "dashboard.html#dashboard-1",
+    "href": "dashboard.html#dashboard-1",
+    "title": "Dashboard",
+    "section": "",
+    "text": "Caution\n\n\n\nDashboard will be implemented in the future… Stand by…"
+  },
+  {
+    "objectID": "background.html",
+    "href": "background.html",
+    "title": "Background",
+    "section": "",
+    "text": "There are some excellent papers by Heini Wernli on the use of back trajectories to understand the history of air that arrives at a given location. In particular, these papers describe different ways that the air trajectories can be analyzed to understand:\n\nwater vapor transport\ndiabatic versus adiabatic heating/cooling\n\nHere is a list of the important papers (in chronological order), including notes on how to use back trajectories for analysis:\n\n\n\n\n\n\n\n\nAssume air parcel “integrity”…\n\nIdentify where moisture enters an air parcel\nEstimate which moisture sources contribute how much to precipitation at a specific location\n\nOnly air parcels that are precipitating (RH &gt; 80%) at t = 0 hours are analyzed\n6 step method for determining location of moisture source regions\nThis method allows for determining within-BL and above-BL uptake of moisture\n\n\n\n\n\nProvides a method for determining what fraction of moisture uptake from a particular location contributes to precipitation from the air parcel. Thus, this provides information on the “relevance” of a particular source region for local precip.\n\n\n\n\n\n\n\n\nThis paper discusses how the moisture sources associated with precipitation on Greenland is affected by the NAO index; see Figure 6.\nFigure 8 shows the definition of “uptake sectors” in the Arctic and the fraction of contribution from each sector in different NAO regimes (+, neutral and -)\n\n\n\n\n\n\nHere the authors reconsider some of the assumptions, limitations and cavaets of this method of Lagrangian analysis.\nThey also compare their new method to previous Lagrangian moisture source diagnostics.\n\n\n\n\n\n\n\n\n\nThis paper concentrates on the analysis of back trajectories during hot and cold extremes in Europe.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions of the study\n\nHow often did large-scale melt events occur over the GrIS during 1979-2017?\nWhat are the synoptic flow configuration and the air mass pathways during these melt events?\nWhich thermodynamic air mass modifications and radiative effects over the GrIS accumulation zone caused these melt events?\nDoes the answer to Q2 and Q3 differ for subregions of the GrIS accumulation zone?"
+  },
+  {
+    "objectID": "background.html#back-trajectory-analysis",
+    "href": "background.html#back-trajectory-analysis",
+    "title": "Background",
+    "section": "",
+    "text": "There are some excellent papers by Heini Wernli on the use of back trajectories to understand the history of air that arrives at a given location. In particular, these papers describe different ways that the air trajectories can be analyzed to understand:\n\nwater vapor transport\ndiabatic versus adiabatic heating/cooling\n\nHere is a list of the important papers (in chronological order), including notes on how to use back trajectories for analysis:\n\n\n\n\n\n\n\n\nAssume air parcel “integrity”…\n\nIdentify where moisture enters an air parcel\nEstimate which moisture sources contribute how much to precipitation at a specific location\n\nOnly air parcels that are precipitating (RH &gt; 80%) at t = 0 hours are analyzed\n6 step method for determining location of moisture source regions\nThis method allows for determining within-BL and above-BL uptake of moisture\n\n\n\n\n\nProvides a method for determining what fraction of moisture uptake from a particular location contributes to precipitation from the air parcel. Thus, this provides information on the “relevance” of a particular source region for local precip.\n\n\n\n\n\n\n\n\nThis paper discusses how the moisture sources associated with precipitation on Greenland is affected by the NAO index; see Figure 6.\nFigure 8 shows the definition of “uptake sectors” in the Arctic and the fraction of contribution from each sector in different NAO regimes (+, neutral and -)\n\n\n\n\n\n\nHere the authors reconsider some of the assumptions, limitations and cavaets of this method of Lagrangian analysis.\nThey also compare their new method to previous Lagrangian moisture source diagnostics.\n\n\n\n\n\n\n\n\n\nThis paper concentrates on the analysis of back trajectories during hot and cold extremes in Europe.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuestions of the study\n\nHow often did large-scale melt events occur over the GrIS during 1979-2017?\nWhat are the synoptic flow configuration and the air mass pathways during these melt events?\nWhich thermodynamic air mass modifications and radiative effects over the GrIS accumulation zone caused these melt events?\nDoes the answer to Q2 and Q3 differ for subregions of the GrIS accumulation zone?"
+  },
+  {
+    "objectID": "creation.html",
+    "href": "creation.html",
+    "title": "Creating Trajectories",
+    "section": "",
+    "text": "The back trajectories were calculated using the NOAA Hysplit model. The model was run on gaia, a 32-processor Linux workstation.\n\n\n\nevery hour (1 hour spacing)\nsample SETUP file"
+  },
+  {
+    "objectID": "creation.html#trajectory-model",
+    "href": "creation.html#trajectory-model",
+    "title": "Creating Trajectories",
+    "section": "",
+    "text": "The back trajectories were calculated using the NOAA Hysplit model. The model was run on gaia, a 32-processor Linux workstation."
+  },
+  {
+    "objectID": "creation.html#model-setup",
+    "href": "creation.html#model-setup",
+    "title": "Creating Trajectories",
+    "section": "",
+    "text": "every hour (1 hour spacing)\nsample SETUP file"
+  },
+  {
+    "objectID": "analysis.html",
+    "href": "analysis.html",
+    "title": "Analysis",
+    "section": "",
+    "text": "Diabatic vs adiabatic heating/cooling\nMoisture uptake\n\nThis method comes from Sodemann, Schwierz, and Wernli (2008); they cite James et al. (2004). One simply calculates the change in specific humidity between equally spaced periods along the trajectory.\n\nMoisture Source Attribution\n\nThis method comes from Sodemann, Schwierz, and Wernli (2008).\nI think it might be interesting to plot symbols on the trajectory map that show moisture uptake (blue = evaporation) and moisture loss (blue = precipitation; color represent gain and loss to the atmosphere). Think about color choices here…\n\nAssociate trajectory with cloud base height\n\nDetermine the cloud-base height at each trajectory time. (This can be done using the CL61 summary files at 15 minute resolution.) Then select the vertical level that is closest to the cloud-base height. Plot all of these trajectories together to determine if they might be categorized. Determine the SOMs that are associated with the resulting categories; see below.\n\nAssociate trajectory with Self Organizing Map\n\nDetermine the SOMs that are associated with each near-surface trajectory. I suspect that some SOMs will the associated with precipitation along the trajectory and some won’t.\n\nRegional trajectory analysis\n\nUse the methods of Hermann, Papritz, and Wernli (2020) to analyze multiple trajectories across the SW region of Greenland for the summer of 2024 to investigate how representative the SLEIGH measurements are. A lot of cool research questions here:\n\nHow large of an area in SW Greenland if affected by similar conditions to Raven?\nHow representative are the SLEIGH measurments under different atmospheric conditions (SOMs)?\n\n\n\n\n\nPlot an individual trajectory in the context of ALL the trajectories at a given vertical level for the Raven 2024 field season. All the trajectories would use a very think line, while the desired trajectory would me bold and thick. Similar to Figure 2 in Hermann, Papritz, and Wernli (2020).\nPlot time series of an individual trajectory in the context of ALL the trajectories at a given vertical level for the Raven 2024 field season. Use shading to show the upper and lower quartiles and upper and lower deciles. Similar to Figures 2, 3, 5, 6, 7, 8 in Bieli, Pfahl, and Wernli (2015).\nCreate potential temperature (theta) vs air temperature (T) plots. Add lines of constant pressure. Similar to Figure 10 of Bieli, Pfahl, and Wernli (2015) and Figure 10 of Hermann, Papritz, and Wernli (2020). (Note that Hermann plotted T vs theta instead of theta vs T).\n\n\n\n\n\n\n\\[\n\\frac{dT}{dt} = \\frac{\\kappa T \\omega}{p} + H \\left( \\frac{p_o}{p} \\right)^{-\\kappa}\n\\]\n\nthe first term on the right represents the adiabatic heating/cooling from compression/expansion. \\(\\omega\\) &gt; 0 for descending motion (compression and heating, + term).\nthe second term on the right represents diabatic temperature changes from latent heating in clouds (rare at the surface), radiation, and surface fluxes. Therefore, the term H can be written as \\(H = H_{cld} + H_{rad} + H_{sfl}\\).\n\n\n\n\n\\[\n\\frac{dq}{dt} \\approx \\frac{\\Delta q}{\\Delta t} = E - P = Evaporation - Precipitation \\space [units: g \\space kg^{-1} \\space (1 h)^{-1}]\n\\]\n\nThus, changes in the air parcel’s moisture content can be approximated by simply determing the change in q (specific humidity) between each time step (because each time step is equal; 1 hour).\n\n\n\n\n\\[\n\\frac{d \\textbf{x}}{dt} = \\textbf{u(x)}\n\\]\n\n\n\n\n\n\\(\\Theta\\) vs. T\n\nT changes while \\(\\Theta\\) remains constant = adiabatic contribution\nT and \\(\\Theta\\) change in parallel = diabatic contribution\n\nTrajectory time series showing median value and interquartile and interdecile ranges of:\n\nq\n\\(\\Theta '\\)\nlat - lat_0\np\nT - To\n\\(\\Theta - \\Theta_o\\)"
+  },
+  {
+    "objectID": "analysis.html#ideas-for-analysis",
+    "href": "analysis.html#ideas-for-analysis",
+    "title": "Analysis",
+    "section": "",
+    "text": "Diabatic vs adiabatic heating/cooling\nMoisture uptake\n\nThis method comes from Sodemann, Schwierz, and Wernli (2008); they cite James et al. (2004). One simply calculates the change in specific humidity between equally spaced periods along the trajectory.\n\nMoisture Source Attribution\n\nThis method comes from Sodemann, Schwierz, and Wernli (2008).\nI think it might be interesting to plot symbols on the trajectory map that show moisture uptake (blue = evaporation) and moisture loss (blue = precipitation; color represent gain and loss to the atmosphere). Think about color choices here…\n\nAssociate trajectory with cloud base height\n\nDetermine the cloud-base height at each trajectory time. (This can be done using the CL61 summary files at 15 minute resolution.) Then select the vertical level that is closest to the cloud-base height. Plot all of these trajectories together to determine if they might be categorized. Determine the SOMs that are associated with the resulting categories; see below.\n\nAssociate trajectory with Self Organizing Map\n\nDetermine the SOMs that are associated with each near-surface trajectory. I suspect that some SOMs will the associated with precipitation along the trajectory and some won’t.\n\nRegional trajectory analysis\n\nUse the methods of Hermann, Papritz, and Wernli (2020) to analyze multiple trajectories across the SW region of Greenland for the summer of 2024 to investigate how representative the SLEIGH measurements are. A lot of cool research questions here:\n\nHow large of an area in SW Greenland if affected by similar conditions to Raven?\nHow representative are the SLEIGH measurments under different atmospheric conditions (SOMs)?"
+  },
+  {
+    "objectID": "analysis.html#ideas-for-plots",
+    "href": "analysis.html#ideas-for-plots",
+    "title": "Analysis",
+    "section": "",
+    "text": "Plot an individual trajectory in the context of ALL the trajectories at a given vertical level for the Raven 2024 field season. All the trajectories would use a very think line, while the desired trajectory would me bold and thick. Similar to Figure 2 in Hermann, Papritz, and Wernli (2020).\nPlot time series of an individual trajectory in the context of ALL the trajectories at a given vertical level for the Raven 2024 field season. Use shading to show the upper and lower quartiles and upper and lower deciles. Similar to Figures 2, 3, 5, 6, 7, 8 in Bieli, Pfahl, and Wernli (2015).\nCreate potential temperature (theta) vs air temperature (T) plots. Add lines of constant pressure. Similar to Figure 10 of Bieli, Pfahl, and Wernli (2015) and Figure 10 of Hermann, Papritz, and Wernli (2020). (Note that Hermann plotted T vs theta instead of theta vs T)."
+  },
+  {
+    "objectID": "analysis.html#useful-equations",
+    "href": "analysis.html#useful-equations",
+    "title": "Analysis",
+    "section": "",
+    "text": "\\[\n\\frac{dT}{dt} = \\frac{\\kappa T \\omega}{p} + H \\left( \\frac{p_o}{p} \\right)^{-\\kappa}\n\\]\n\nthe first term on the right represents the adiabatic heating/cooling from compression/expansion. \\(\\omega\\) &gt; 0 for descending motion (compression and heating, + term).\nthe second term on the right represents diabatic temperature changes from latent heating in clouds (rare at the surface), radiation, and surface fluxes. Therefore, the term H can be written as \\(H = H_{cld} + H_{rad} + H_{sfl}\\).\n\n\n\n\n\\[\n\\frac{dq}{dt} \\approx \\frac{\\Delta q}{\\Delta t} = E - P = Evaporation - Precipitation \\space [units: g \\space kg^{-1} \\space (1 h)^{-1}]\n\\]\n\nThus, changes in the air parcel’s moisture content can be approximated by simply determing the change in q (specific humidity) between each time step (because each time step is equal; 1 hour).\n\n\n\n\n\\[\n\\frac{d \\textbf{x}}{dt} = \\textbf{u(x)}\n\\]"
+  },
+  {
+    "objectID": "analysis.html#plot-ideas",
+    "href": "analysis.html#plot-ideas",
+    "title": "Analysis",
+    "section": "",
+    "text": "\\(\\Theta\\) vs. T\n\nT changes while \\(\\Theta\\) remains constant = adiabatic contribution\nT and \\(\\Theta\\) change in parallel = diabatic contribution\n\nTrajectory time series showing median value and interquartile and interdecile ranges of:\n\nq\n\\(\\Theta '\\)\nlat - lat_0\np\nT - To\n\\(\\Theta - \\Theta_o\\)"
+  }
+]
