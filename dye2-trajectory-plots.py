@@ -15,7 +15,7 @@ hvplot.extension('bokeh', comms='vscode')
 # %%
 d = '/mnt/disk2/data/hysplit/backTrajectories/'
 dstr = '2024'
-fns = sorted(glob(d + 'Raven_' + dstr + '*.trj'))
+fns = sorted(glob(d + 'DYE-2_' + dstr + '*.trj'))
 
 time       = []
 lat_median = []
@@ -77,7 +77,7 @@ ds = xr.Dataset(data_vars={'lat_median': (['time', 'height'], lat_median),
                 coords={'time': ('time', time), 
                         'height': ('height', height)})
 
-p_lat_median = ds.lat_median.hvplot(x='time', y='height', cmap='viridis_r', ylim=(0,10000), clim=(45,85), clabel='Median Latitude', height=300, responsive=True).opts(title='HYSPLIT-5 Back Trajectories for Raven Camp 2024')
+p_lat_median = ds.lat_median.hvplot(x='time', y='height', cmap='viridis_r', ylim=(0,10000), clim=(45,85), clabel='Median Latitude', height=300, responsive=True).opts(title='HYSPLIT-5 Back Trajectories for DYE-2, Greenland 2024')
 p_alt_min    = ds.alt_min.hvplot(x='time', y='height', cmap='viridis_r', ylim=(0,10000), clim=(0,10000), clabel='Minimum Altitude', height=300, responsive=True)
 p_dTheta     = ds.dTheta.hvplot(x='time', y='height', cmap='RdBu_r', ylim=(0,10000), clim=(-30,30), clabel='d(Potential Temperature)', height=300, responsive=True)
 p_q_mean     = ds.q_mean.hvplot(x='time', y='height', cmap='Blues', ylim=(0,10000), clabel='Specific Humidity, q (g/kg)', height=300, responsive=True)
@@ -86,7 +86,7 @@ p_dq         = ds.dq.hvplot(x='time', y='height', cmap='RdBu', ylim=(0,10000), c
 plots = hv.Layout([p_lat_median, p_alt_min, p_dTheta, p_q_mean, p_dq]).cols(1)
 hvplot.save(plots, 'docs/index.html')
 
-#TAB = pn.Column(pn.pane.Markdown('# HYSPLIT-5 Back Trajectories for Raven Camp 2024'), p_lat_median, p_alt_min, p_dTheta, p_q_mean, p_dq)
+#TAB = pn.Column(pn.pane.Markdown('# HYSPLIT-5 Back Trajectories for DYE-2, Greenland 2024'), p_lat_median, p_alt_min, p_dTheta, p_q_mean, p_dq)
 #pn.Row(TAB, sizing_mode='stretch_width', width_policy='max').servable()
 
 # %%

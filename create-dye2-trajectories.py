@@ -22,7 +22,7 @@ def generate_back_trajectories(times):
     lat    = +66.5
     lon    = -46.3
     alts   = np.arange(100, 10000, 500)
-    descriptor = 'Raven_'
+    descriptor = 'DYE-2_'
     hy = hysplit.HYSPLIT(times,data_source,length,lat,lon,alts,descriptor)
     hy.runBackTrajectory()
     return

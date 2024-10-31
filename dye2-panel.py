@@ -12,9 +12,9 @@ hostname = gethostname()
 
 # %%
 if ('nuia' in hostname):
-    fn = '/Users/vonw/data/raven/hysplit/raven_back_trajectories.nc'
+    fn = '/Users/vonw/data/raven/hysplit/dye2_back_trajectories.nc'
 elif ('gaia' in hostname):
-    fn = '/mnt/disk2/data/hysplit/backTrajectories/raven_back_trajectories.nc'
+    fn = '/mnt/disk2/data/hysplit/backTrajectories/dye2_back_trajectories.nc'
 else:
     print('No data file containing back trajectories. Exiting.')
     exit()
@@ -23,10 +23,10 @@ else:
 @pn.cache()
 def get_data(filename):
     return xr.open_dataset(filename)
-raven_back_trajectories = get_data(fn)
+dye2_back_trajectories = get_data(fn)
 
 # %% widgets
-variables = [variable for variable in raven_back_trajectories.variables][2:11]
+variables = [variable for variable in dye2_back_trajectories.variables][2:11]
 
 time      = pn.widgets.DatetimePicker(name='Date of Trajectories', value=dt.datetime(2024, 5, 15), start=dt.datetime(2024, 5, 15), end = dt.datetime.today() - dt.timedelta(days=1))
 level     = pn.widgets.IntSlider(name='Vertical Level of Trajectory (m)', start=100, end=9100, value=100, step=500, bar_color='green')
@@ -35,10 +35,10 @@ kind      = pn.widgets.Select(name='Plot Type', options=['scatter', 'hist'])
 
 # %%
 def get_dataframe(time, level):
-    df = raven_back_trajectories.sel(time=time.strftime('%Y-%m-%d %H'), vertical_level=level, method='nearest').to_dataframe()
+    df = dye2_back_trajectories.sel(time=time.strftime('%Y-%m-%d %H'), vertical_level=level, method='nearest').to_dataframe()
     return df
 
-ref_time = raven_back_trajectories['ref_time_along_trajectories'].values
+ref_time = dye2_back_trajectories['ref_time_along_trajectories'].values
 df = pn.rx(get_dataframe)(time=time, level=level)
 
 # %% Indicators
@@ -79,7 +79,7 @@ tabs = pn.Tabs(tseries, table)
 
 # %% Serve the template
 pn.template.FastListTemplate(
-    title="Raven back trajectory dashboard",
+    title="DYE-2 back trajectory dashboard",
     main=[pn.WidgetBox(pn.Row(*[time, level, variable, kind])), indicators,
           pn.FlexBox(pn.Row(trj, tabs), height=350),
           thetaT],
