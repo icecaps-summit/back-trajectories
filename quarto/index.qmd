@@ -1,3 +1,0 @@
-# Introduction {.unnumbered}
-
-This set of documents explains the creation, analysis and visualization of back trajectory calculations performed for Raven Camp, Greenland from May to August 2024. This back trajectory analysis is part of the ICECAPS-MELT project, sponsored by the National Science Foundation's Arctic Observing Network (AON) under grant 2137083 to Washington State University (Von P. Walden, PI).

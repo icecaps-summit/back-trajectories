@@ -7,26 +7,16 @@ import cartopy.crs as ccrs
 import panel as pn
 pn.extension('tabulator', sizing_mode='stretch_width')
 
-from socket import gethostname
-hostname = gethostname()
-
 # %%
-if ('nuia' in hostname):
-    fn = '/Users/vonw/data/raven/hysplit/dye2_back_trajectories.nc'
-elif ('gaia' in hostname):
-    fn = '/mnt/disk2/data/hysplit/backTrajectories/dye2_back_trajectories.nc'
-else:
-    print('No data file containing back trajectories. Exiting.')
-    exit()
+fn = "https://icecaps-o.s3-ext.jc.rl.ac.uk/back-trajectories"
 
-# %%
 @pn.cache()
 def get_data(filename):
-    return xr.open_dataset(filename)
+    return xr.open_zarr(filename)
 dye2_back_trajectories = get_data(fn)
 
 # %% widgets
-variables = [variable for variable in dye2_back_trajectories.variables][2:11]
+variables = [variable for variable in dye2_back_trajectories.variables]
 
 time      = pn.widgets.DatetimePicker(name='Date of Trajectories', value=dt.datetime(2024, 5, 15), start=dt.datetime(2024, 5, 15), end = dt.datetime.today() - dt.timedelta(days=1))
 level     = pn.widgets.IntSlider(name='Vertical Level of Trajectory (m)', start=100, end=9100, value=100, step=500, bar_color='green')
@@ -44,14 +34,15 @@ df = pn.rx(get_dataframe)(time=time, level=level)
 # %% Indicators
 indicators = pn.FlexBox(
     pn.indicators.Number(
-        value=df['air temperature'].mean(), name="Mean Air Temperature", format="{value:,.1f}", font_size='24pt', title_size='8pt', colors=[(250, 'blue'), (273.15, 'teal'), (290, 'red')],
+        value=df[variable].min(),  name="Min ", format="{value:,.0f}", font_size='24pt', title_size='8pt',
     ),
     pn.indicators.Number(
-        value=df['air temperature'].max(),  name="Max Air Temperature", format="{value:,.1f}", font_size='24pt', title_size='8pt', colors=[(250, 'blue'), (273.15, 'teal'), (290, 'red')],
+        value=df[variable].mean(), name="Mean ", format="{value:,.0f}", font_size='24pt', title_size='8pt',
     ),
     pn.indicators.Number(
-        value=df['air temperature'].min(),  name="Min Air Temperature", format="{value:,.1f}", font_size='24pt', title_size='8pt', colors=[(250, 'blue'), (273.15, 'teal'), (290, 'red')],
-    ),
+        value=df[variable].max(),  name="Max ", format="{value:,.0f}", font_size='24pt', title_size='8pt',
+    ), 
+    justify_content='flex-end',
 )
 
 # %% Figure definition
@@ -73,7 +64,7 @@ fig = df[variable].hvplot(kind=kind, grid=True, c=variable, cmap='viridis', lege
 # %%
 tseries  = pn.pane.HoloViews(fig, name='Plot', sizing_mode='stretch_width')
 table = pn.widgets.Tabulator(df,  name='Table', pagination='remote', page_size=8)
-thetaT = pn.pane.HoloViews(df.hvplot.scatter(x='potential temperature', y='air temperature', c=variable, cmap='viridis'))
+thetaT = pn.pane.HoloViews(df.hvplot.scatter(x='air_potential_temperature', y='air_temperature', c=variable, cmap='viridis', grid=True))
 
 tabs = pn.Tabs(tseries, table)
 
@@ -84,3 +75,5 @@ pn.template.FastListTemplate(
           pn.FlexBox(pn.Row(trj, tabs), height=350),
           thetaT],
 ).servable()
+
+# %%
